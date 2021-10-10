@@ -2,10 +2,30 @@
 9. Transformă un număr dat din baza 2 în baza 16. Numărul se dă în baza 2.
 '''
 
-def get_base_16_from_2(n: str):
-    nr=int(n,2)
-    return hex(nr)
+def get_base_16_from_2(n):
+    form ="0123456789ABCDEF"
+    nr_16=""
+    nr_10 = 0
+    put = 1
+    numar = int(n)
 
+    while numar != 0:
+        cifra =numar % 10
+        nr_10= nr_10 + cifra * put
+        put= put*2
+        numar = numar //10
+
+    while nr_10!=0:
+        i=n_10 %16
+        nr_16= form[i] + nr_16
+        nr_10= nr_10//16
+
+    return nr_16
+
+def test_get_base_16_from_2():
+    assert get_base_16_from_2(0000)== "0"
+    assert get_base_16_from_2(1100) =="C"
+    assert get_base_16_from_2(1110)== "E"
 
 
 '''
@@ -93,6 +113,7 @@ def main():
             print("Reincercati")
 
 if __name__=="__main__":
+    test_get_base_16_from_2()
     test_get_n_choose_k()
     test_is_superprime()
 
