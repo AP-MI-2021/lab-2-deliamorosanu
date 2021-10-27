@@ -116,7 +116,7 @@ def main():
             print("Reincercati")
 
 
-if _name_ == "main":
+if __name__ == "main":
     test_get_n_choose_k()
     test_is_superprime()
 
